@@ -1,0 +1,16 @@
+name: Github Actions Example
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches: 
+      - master
+      - develop
+jobs:
+  test:
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'  
+    steps:
+      - run: npm test
