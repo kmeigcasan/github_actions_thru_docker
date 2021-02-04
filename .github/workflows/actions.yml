@@ -11,10 +11,11 @@ jobs:
   build:
     name: Running Unit Tests
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
     - name: Docker build the app
+      uses: actions/setup-node@v1
     - run: npm ci
     - run: docker build ./
     - run: npm test
