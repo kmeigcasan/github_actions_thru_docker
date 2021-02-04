@@ -11,11 +11,11 @@ jobs:
   build:
     name: Running Unit Tests
     runs-on: ubuntu-latest
-
+    env:
+      COMPOSE_FILE: ../../docker-compose.yml
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Docker build the app
-      uses: actions/setup-node@v1
-    - run: npm ci
-    - run: docker build ./
-    - run: npm test
+    - run: docker-compose build
+    - name: Run docker tests
+    - run: docker-compose run test
