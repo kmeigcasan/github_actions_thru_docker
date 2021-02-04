@@ -8,9 +8,13 @@ on:
       - master
       - develop
 jobs:
-  test:
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'  
+  build:
+    name: Running Unit Tests
+    runs-on: ubuntu-latest
+    
     steps:
-      - run: npm test
+    - uses: actions/checkout@v1
+    - name: Docker build the app
+    - run: npm ci
+    - run: docker build ./
+    - run: npm test
