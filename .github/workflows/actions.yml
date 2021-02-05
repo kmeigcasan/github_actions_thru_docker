@@ -8,14 +8,15 @@ on:
       - master
       - develop
 jobs:
-  build:
+  test:
     name: Running Unit Tests
     runs-on: ubuntu-latest
     env:
       COMPOSE_FILE: ../../docker-compose.yml
     steps:
+    - name: Checkout code
     - uses: actions/checkout@v2
-    - name: Docker build the app
+    - name: Build docker images
     - run: docker-compose build
     - name: Run docker tests
     - run: docker-compose run test
