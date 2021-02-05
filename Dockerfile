@@ -10,6 +10,8 @@ COPY package.json .
 # happens in container
 RUN npm install -g nodemon
 
+RUN npm install -g mocha
+
 #happens in container
 RUN npm install
 
