@@ -15,8 +15,8 @@ jobs:
       COMPOSE_FILE: ../../docker-compose.yml
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Build docker images
-    - run: docker-compose build
+      run: docker-compose build
     - name: Run docker tests
-    - run: docker-compose run test
+      run: docker-compose run test
